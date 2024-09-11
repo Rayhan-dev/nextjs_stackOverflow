@@ -1,14 +1,15 @@
 import {
   ClerkProvider,
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
+  // SignInButton,
+  // SignedIn,
+  // SignedOut,
+  // UserButton,
 } from "@clerk/nextjs";
 import "./globals.css";
 import React from "react";
 // eslint-disable-next-line camelcase
 import { Inter, Space_Grotesk } from "next/font/google";
+// import { ThemeProvider } from "@/context/ThemeProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -46,13 +47,15 @@ export default function RootLayout({
     >
       <html lang="en">
         <body className={`${inter.variable} ${spaceGrowtesk.variable}`}>
-          <SignedOut>
+          {/* <SignedOut>
             <SignInButton />
           </SignedOut>
           <SignedIn>
             <UserButton />
-          </SignedIn>
+          </SignedIn> */}
+          {/* <ThemeProvider> */}
           {children}
+          {/* </ThemeProvider> */}
         </body>
       </html>
     </ClerkProvider>
