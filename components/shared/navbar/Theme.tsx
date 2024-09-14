@@ -35,10 +35,10 @@ const Theme = () => {
             />
           )}
         </MenubarTrigger>
-        <MenubarContent className=" absolute -right-12 mt-3 min-w-[120px] rounded border py-2">
+        <MenubarContent className=" absolute -right-12 mt-3 min-w-[120px] rounded border bg-light-900 py-2 dark:bg-dark-300 dark:text-light-700">
           {themes.map((item) => (
             <MenubarItem
-              className="flex items-center gap-4 px-2.5 py-2 dark:focus:bg-dark-400"
+              className="flex items-center gap-4 px-2.5 py-2 focus:bg-light-800 dark:focus:bg-dark-400"
               key={item.value}
               onClick={() => {
                 setMode(item.value);
