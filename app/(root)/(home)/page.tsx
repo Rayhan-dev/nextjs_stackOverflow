@@ -1,4 +1,4 @@
-import HomeFilters from "@/components/home/HomeFilters";
+// import HomeFilters from "@/components/home/HomeFilters";
 import QuestionCard from "@/components/shared/cards/QuestionCard";
 import Filter from "@/components/shared/Filter";
 import NoResult from "@/components/shared/NoResult";
@@ -41,7 +41,7 @@ export default async function Home() {
         />
       </div>
 
-      <HomeFilters />
+      {/* <HomeFilters /> */}
 
       <div className="mt-10 flex w-full flex-col gap-6">
         {result.questions.length > 0 ? (
