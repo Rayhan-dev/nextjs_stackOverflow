@@ -1,4 +1,4 @@
-import HomeFilters from "../../../components/homePage/HomeFilters";
+import HomeFilters from "@/components/home/HomeFilters";
 import QuestionCard from "@/components/shared/cards/QuestionCard";
 import Filter from "@/components/shared/Filter";
 import NoResult from "@/components/shared/NoResult";
