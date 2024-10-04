@@ -18,7 +18,7 @@ export async function getQuestions(params: GetQuestionsParams) {
 
     return { questions };
   } catch (error) {
-    throw error;
+    throw new Error("Failed to get questions");
   }
 }
 
