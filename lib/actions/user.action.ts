@@ -17,8 +17,7 @@ export async function getUserById(userId: string) {
     const user = await User.findOne({ clerkId: userId });
     return user;
   } catch (error) {
-    console.log(error);
-    throw error;
+    throw new Error("Failed to get user");
   }
 }
 
@@ -28,8 +27,7 @@ export async function createUser(userData: CreateUserParams) {
     const newUser = await User.create(userData);
     return newUser;
   } catch (error) {
-    console.log(error);
-    throw error;
+    throw new Error("Failed to create user");
   }
 }
 
@@ -40,8 +38,7 @@ export async function updateUser(params: UpdateUserParams) {
     await User.findOneAndUpdate({ clerkId }, updateData, { new: true });
     revalidatePath(path);
   } catch (error) {
-    console.log(error);
-    throw error;
+    throw new Error("Failed to update user");
   }
 }
 
@@ -67,7 +64,6 @@ export async function deleteUSer(params: DeleteUserParams) {
 
     return deletedUSer;
   } catch (error) {
-    console.log(error);
-    throw error;
+    throw new Error("Failed to delete user");
   }
 }

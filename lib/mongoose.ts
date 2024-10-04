@@ -6,11 +6,11 @@ export const connectToDatabase = async () => {
   mongoose.set("strictQuery", true);
 
   if (!process.env.MONGODB_URL) {
-    console.log("Missing Mongodb URL");
+    // console.log("Missing Mongodb URL");
     return;
   }
   if (isConnected) {
-    console.log("Mongodb already connected");
+    // console.log("Mongodb already connected");
     return;
   }
   try {
@@ -18,8 +18,8 @@ export const connectToDatabase = async () => {
       dbName: "devflow",
     });
     isConnected = true;
-    console.log("Mongodb connected");
+    // console.log("Mongodb connected");
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 };
