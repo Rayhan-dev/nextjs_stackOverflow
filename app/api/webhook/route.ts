@@ -53,17 +53,12 @@ export async function POST(req: Request) {
 
   // Do something with the payload
   // For this guide, you simply log the payload to the console
-  const { id } = evt.data;
   const eventType = evt.type;
-  console.log(`Webhook with and ID of ${id} and type of ${eventType}`);
-  console.log("Webhook body:", body);
 
   if (eventType === "user.created") {
     const { id, email_addresses, first_name, last_name, image_url, username } =
       evt.data;
-
     // create a new user in database
-
     const mongoUser = await createUser({
       clerkId: id,
       email: email_addresses[0].email_address,
@@ -71,7 +66,7 @@ export async function POST(req: Request) {
       picture: image_url,
       username: username!,
     });
-    return NextResponse.json({ messege: "Ok", user: mongoUser });
+    return NextResponse.json({ messege: "user created", user: mongoUser });
   }
 
   if (eventType === "user.updated") {
@@ -91,7 +86,11 @@ export async function POST(req: Request) {
       path: `/profile/${id}`,
     });
 
-    return NextResponse.json({ messege: "Ok", Updateuser: updatedMongoUser });
+    console.log(evt.data);
+    return NextResponse.json({
+      messege: "user updated",
+      Updateuser: updatedMongoUser,
+    });
   }
 
   if (eventType === "user.deleted") {
@@ -100,7 +99,7 @@ export async function POST(req: Request) {
     const deletedUser = await deleteUSer({
       clerkId: id!,
     });
-    return NextResponse.json({ messege: "Ok", user: deletedUser });
+    return NextResponse.json({ messege: "uder deleted", user: deletedUser });
   }
 
   return new Response("", { status: 200 });
