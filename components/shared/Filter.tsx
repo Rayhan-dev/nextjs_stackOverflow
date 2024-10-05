@@ -33,9 +33,16 @@ const Filter = ({
           </div>
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="light">Light</SelectItem>
+          {filters.map((filter) => {
+            return (
+              <SelectItem key={filter.value} value={filter.value}>
+                {filter.name}
+              </SelectItem>
+            );
+          })}
+          {/* <SelectItem value="light">Light</SelectItem>
           <SelectItem value="dark">Dark</SelectItem>
-          <SelectItem value="system">System</SelectItem>
+          <SelectItem value="system">System</SelectItem> */}
         </SelectContent>
       </Select>
     </div>
