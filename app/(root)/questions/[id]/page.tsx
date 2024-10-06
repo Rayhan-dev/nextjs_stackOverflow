@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import RenderTag from "@/components/shared/RenderTag";
+import Answer from "@/components/forms/Answer";
 
 const page = async ({ params }: any) => {
   const result = await getQuestionById({ questionId: params.id });
@@ -72,7 +73,7 @@ const page = async ({ params }: any) => {
         ))}
       </div>
 
-      {/* <Answer /> */}
+      <Answer />
     </>
   );
 };
