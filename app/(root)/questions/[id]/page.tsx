@@ -24,7 +24,6 @@ const Page = async ({ params, searchParams }: any) => {
   // getting the question
   const result = await getQuestionById({ questionId: params.id });
 
-  console.log("stirngified :", JSON.stringify(result._id));
   return (
     <>
       <div className="flex-start w-full flex-col">
