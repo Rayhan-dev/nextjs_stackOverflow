@@ -58,9 +58,9 @@ const Question = ({ type, questionDetails, mongoUserId }: Props) => {
           questionId: parsedQuestionDetails._id,
           title: values.title,
           content: values.explanation,
-          tags: values.tags,
           path: pathname,
         });
+        router.push(`/questions/${parsedQuestionDetails._id}`);
       } else {
         await createQuestion({
           title: values.title,
@@ -202,7 +202,6 @@ const Question = ({ type, questionDetails, mongoUserId }: Props) => {
           )}
         />
         <FormField
-          disabled={type === "Edit"}
           control={form.control}
           name="tags"
           render={({ field }) => (

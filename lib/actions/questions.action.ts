@@ -75,7 +75,6 @@ export async function editQuestion(params: EditQuestionParams) {
 
     const { questionId, title, content, path } = params;
 
-    // Create the question
     const question = await Question.findById(questionId).populate("tags");
     if (!question) {
       throw new Error("Question not found");
@@ -86,7 +85,9 @@ export async function editQuestion(params: EditQuestionParams) {
     await question.save();
 
     revalidatePath(path);
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export async function getQuestionById(params: GetQuestionByIdParams) {
