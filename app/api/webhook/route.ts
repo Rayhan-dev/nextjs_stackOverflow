@@ -2,7 +2,7 @@
 import { Webhook } from "svix";
 import { headers } from "next/headers";
 import { WebhookEvent } from "@clerk/nextjs/server";
-import { createUser, deleteUSer, updateUser } from "@/lib/actions/user.action";
+import { createUser, deleteUser, updateUser } from "@/lib/actions/user.action";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
@@ -86,7 +86,6 @@ export async function POST(req: Request) {
       path: `/profile/${id}`,
     });
 
-    console.log(evt.data);
     return NextResponse.json({
       messege: "user updated",
       Updateuser: updatedMongoUser,
@@ -96,7 +95,7 @@ export async function POST(req: Request) {
   if (eventType === "user.deleted") {
     const { id } = evt.data;
     // delete a new user in database
-    const deletedUser = await deleteUSer({
+    const deletedUser = await deleteUser({
       clerkId: id!,
     });
     return NextResponse.json({ messege: "uder deleted", user: deletedUser });
